@@ -5,6 +5,9 @@
 sbit dula = P2^0;
 sbit wela = P2^1;
 
+uchar a, b, c, b, e, f, g, h;
+uchar code table[]={0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f};	 //共阴极数码管段选编码=>显示0-9.
+
 void delay(uint t);
 void display(a, b, c, d);
 void demo1();
@@ -13,63 +16,62 @@ void demo3();
 void demo4();
 void Birth(a, b, c, d, e, f, g, h);
 
-uchar code table[]={0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f};	 //����������ܶ�ѡ����=>��ʾ0-9.
 
-//��6λ��ʾ��1��
+//高6位显示‘1’
 void demo1()
 {
 
-	//��ܣ����������λ�Ͽ�
+	//清管：数码管所有位断开
 	P0=0xff; wela=1; wela=0;		
 
-	//�Ͷ���
+	//送段码
 	P0=0x06; dula=1; dula=0;
 
-	//��λ��
+	//送位码
 	P0=0xC0; wela=1; wela=0;
 
 }
-//8λ����ʾ��2��
+//8位都显示‘2’
 void demo2()
 {
 
-	//��ܣ����������λ�Ͽ�
+	//清管：数码管所有位断开
 	P0=0xff; wela=1; wela=0;		
 
-	//�Ͷ���
+	//送段码
 	P0=0x5b; dula=1; dula=0;
 
-	//��λ��
+	//送位码
 	P0=0x00; wela=1; wela=0;	
 		
 }
 
-//��4λ��ʾ��5��
+//高4位显示‘5’
 void demo3()
 {
 
-	//��ܣ����������λ�Ͽ�
+	//清管：数码管所有位断开
 	P0=0xff; wela=1; wela=0;		
 
-	//�Ͷ���
+	//送段码
 	P0=0x6d; dula=1; dula=0;
 
-	//��λ��
+	//送位码
 	P0=0xf0; wela=1; wela=0;
 
 }
 
-//��5λ��ʾ��0�����Ӹߵ��ͣ�
+//第5位显示‘0’（从高到低）
 void demo4()
 {
 
-	//��ܣ����������λ�Ͽ�
+	//清管：数码管所有位断开
 	P0=0xff; wela=1; wela=0;		
 
-	//�Ͷ���
+	//送段码
 	P0=0x3f; dula=1; dula=0;
 
-	//��λ��
+	//送位码
 	P0=0xef; wela=1; wela=0;
 
 }
@@ -132,7 +134,7 @@ void Birth(a, b, c, d, e, f, g, h)
 
 }
 
-//��ʱ����
+//延时函数
 void delay(uint t)
 {
 	int i, j;
@@ -143,10 +145,10 @@ void delay(uint t)
 
 void main()
 {
-//	demo1();	//��6λ��ʾ��1��
-//	demo2();	//8λ����ʾ��2��
-//	demo3();	//��4λ��ʾ��5��
-//	demo4();	//��5λ��ʾ��0�����Ӹߵ��ͣ�
+//	demo1();	//高6位显示‘1’
+//	demo2();	//8位都显示‘2’
+//	demo3();	//高4位显示‘5’
+//	demo4();	//第5位显示‘0’（从高到低）
 //	display();	//2020
 	int m = 1;
 
@@ -184,4 +186,3 @@ void main()
 
 
 }
-
