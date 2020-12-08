@@ -1,11 +1,11 @@
 *._i
 *.lst
 *.obj
-*.file
-*.Inp
 *.LST
 *.M51
 *.OBJ
 *.plg
 *.uvproj
 *.A51
+*.__i
+*.lnp
