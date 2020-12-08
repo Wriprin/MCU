@@ -1,2 +1,2 @@
 # MCU
-Basic PROG of MCU
+MCU-PROG
