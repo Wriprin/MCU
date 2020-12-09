@@ -56,7 +56,7 @@ void main()
 
 		DelayX500ms(50);
 
-		for(m = 0;m < 6; m++)
+		for(m = 0; m < 6; m++)
 		{
 			mrg = !mrg;
 			DelayX500ms(1);				
