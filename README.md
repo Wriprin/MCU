@@ -76,9 +76,9 @@ int0 int1中断函数
 ```c
 //电子表、秒表、交通数字倒计时
 //主程序：标志位设置  初值设置
-//中断计次函：初值，20次   1次中断    1s   60   1fen   60   1xiaoshi  24
-display(num/10,num%10);  num=24   num=1234
-display(num/1000, num/100%10, num/10%10, num%10);
+//中断计次函数：初值，20次   1次中断    1s   60   1fen   60   1xiaoshi  24
+display(num / 10, num % 10);  num = 24   num = 1234
+display(num / 1000, num / 100 % 10, num / 10 % 10, num % 10);
 ```
 
 
@@ -88,7 +88,7 @@ display(num/1000, num/100%10, num/10%10, num%10);
 ```c
 //3个中断标志位设置
 //计分器    加分int0  减分 int1 清零 
-//t0 计数器作为外部中断使用  65536-1  TMOD=0x05
+//t0 计数器作为外部中断使用  65536-1  TMOD = 0x05
 ```
 
 
@@ -103,18 +103,18 @@ display(num/1000, num/100%10, num/10%10, num%10);
 uchar receive()
 {
 	uchar dat;
-	while(RI==0);
-	RI=0;
-	dat=SBUF;
+	while(RI == 0);
+	RI = 0;
+	dat = SBUF;
 	return dat;
 }
 
 //串口通用发送程序
 void send(uchar dat)
 {
-	SBUF=dat;
-	while(TI==0);
-	TI=0;
+	SBUF = dat;
+	while(TI == 0);
+	TI = 0;
 }
 ```
 
