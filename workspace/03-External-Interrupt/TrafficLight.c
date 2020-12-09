@@ -76,7 +76,7 @@ void main()
 
 		for(m = 0; m < 6; m++)
 		{
-			brg =! brg;
+			brg = !brg;
 			DelayX500ms(1);				
 		}
 
