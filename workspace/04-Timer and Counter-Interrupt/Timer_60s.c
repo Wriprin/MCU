@@ -38,7 +38,7 @@ void display(uchar tens, uchar unit)
 void init()
 {
 
-	TMOD = 0x01;	//t0 ¶¨Ê±Æ÷ ¹¤×÷·½Ê½1
+	TMOD = 0x01;	//t0 å®šæ—¶å™¨ å·¥ä½œæ–¹å¼1
 	TH0 = 19456 / 256;
 	TL0 = 19456 % 256;
 	EA = 1;
