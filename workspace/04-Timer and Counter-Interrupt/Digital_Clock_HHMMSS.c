@@ -39,7 +39,7 @@ void time0() interrupt 1
 	TH0 = 19456 / 256;
 	TL0 = 19456 % 256;
 	count++;
-	if (count >= 20)	//TH0¡¢TL0³õÖµÎª50ms => ËùÒÔ20´Î = 20*50 = 1000ms = 1s. 
+	if (count >= 20)	//TH0ã€TL0åˆå€¼ä¸º50ms => æ‰€ä»¥20æ¬¡ = 20*50 = 1000ms = 1s. 
 	{
 		count = 0;
 		sec ++;
