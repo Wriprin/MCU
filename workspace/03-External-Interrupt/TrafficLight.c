@@ -33,7 +33,7 @@ void Ex0_int() interrupt 0
 	brg = 1;
 	bry = 1;
   	DelayX500ms(40);
-	while(P32 == 0);	//等待本次中断信号结束
+	while(P32 == 0);	//绛夊緟鏈涓柇淇″彿缁撴潫
 	P0 = x;
 }
 
