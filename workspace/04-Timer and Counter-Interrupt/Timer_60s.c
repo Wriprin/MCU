@@ -59,7 +59,7 @@ void t0() interrupt 1
 
 	count++;
 	
-	if (count == 1)
+	if (count == 20)
 	{
 		count = 0;
 		arg++;
