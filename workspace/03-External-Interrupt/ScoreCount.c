@@ -67,7 +67,7 @@ void main()
 	ET0 = 1;
 	TR0 = 1;
 	TH0 = 0xff;
-    TL0 = 0xff;
+	TL0 = 0xff;
 	EX0 = 1;
 	EX1 = 1;
 	IT0 = 1;
