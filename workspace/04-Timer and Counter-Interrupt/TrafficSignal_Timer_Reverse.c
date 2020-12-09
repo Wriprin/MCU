@@ -5,7 +5,9 @@
 sbit dula = P2^0;
 sbit wela = P2^1;
 
+sbit led1 = P0^2;
 uchar count, arg, tens, unit;
+uchar flag;
 
 void delay(uint t);
 void display(uchar tens, uchar unit);
@@ -18,7 +20,7 @@ uchar code table[]={
 
 void delay(uint t)
 {
-	int i,j;
+	int i, j;
 	for (i = 0; i < t; i++)
 		for (j = 0; j < 110; j++);
 }
@@ -34,10 +36,8 @@ void display(uchar tens, uchar unit)
 	P0=0xfd; wela=1; wela=0; delay(1);			
 }
 
-
 void init()
 {
-
 	TMOD = 0x01;
 	TH0 = 19456 / 256;
 	TL0 = 19456 % 256;
@@ -48,38 +48,47 @@ void init()
 	count = 0;
 	unit = 0;
 	tens = 0;
-	arg = 60;
-
+	arg = 30;
 }
 
+
 void t0() interrupt 1
-{  	
+{	
 	TH0 = (65536 - 45872) / 256;
 	TL0 = (65536 - 45872) % 256;
-
+ 	
 	count++;
 	
 	if (count == 20)
-	{
+	{				
 		count = 0;
 		arg--;
 	}
 	
 	if (arg == 0)
 	{
-		TR0 = 0;		
+		flag++;
+		switch(flag % 3)
+		{
+			case 0:	//0,3 
+				arg = 30; 
+				break;
+			case 1:	//1,4
+				arg = 3; 
+				break;	
+			case 2:	//2,5
+				arg = 20; 
+				break;	
+		}		
 	}
-	
 
 }
 
 main()
 {
 	init();
-
 	while(1)
 	{
 		display(arg / 10,arg % 10);		
 	}
-
 }	
